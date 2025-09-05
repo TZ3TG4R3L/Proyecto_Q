@@ -3,41 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulario de Contacto</title>
+  <title>Formulario Declaraciones</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f2f2f2;
+      background: #f2f4f8;
       padding: 40px;
     }
     form {
       background: #fff;
-      padding: 20px;
-      max-width: 500px;
+      padding: 25px;
+      max-width: 800px;
       margin: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #333;
+    }
+    fieldset {
+      border: 1px solid #ddd;
       border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+      background: #fafafa;
+    }
+    legend {
+      font-weight: bold;
+      color: #007bff;
+      padding: 0 10px;
     }
     label {
       display: block;
-      margin-top: 15px;
-      font-weight: bold;
+      margin-top: 10px;
+      font-weight: normal;
+      color: #444;
     }
-    input, textarea {
+    input[type="text"], textarea {
       width: 100%;
-      padding: 10px;
+      padding: 8px;
       margin-top: 5px;
       border: 1px solid #ccc;
-      border-radius: 4px;
+      border-radius: 6px;
+    }
+    .options {
+      display: flex;
+      gap: 15px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+    .options label {
+      font-weight: normal;
+      margin: 0;
+    }
+    .oculto {
+      display: none;
+      margin-top: 15px;
+      padding: 15px;
+      border-left: 3px solid #007bff;
+      background: #f0f8ff;
+      border-radius: 6px;
     }
     button {
-      margin-top: 20px;
-      padding: 10px 20px;
+      display: block;
+      margin: 30px auto 0 auto;
+      padding: 12px 25px;
       background-color: #007bff;
       color: white;
       border: none;
-      border-radius: 4px;
+      border-radius: 6px;
+      font-size: 16px;
       cursor: pointer;
+      transition: background 0.3s;
     }
     button:hover {
       background-color: #0056b3;
@@ -46,22 +85,157 @@
 </head>
 <body>
 
-   <h2>Formulario de Contacto</h2>
-
   <form action="https://formspree.io/f/mkgvvdlg" method="POST">
-    <label for="nombre">Nombre:</label>
-    <input type="text" name="nombre" required>
+    <h2>Formulario de Declaraciones</h2>
 
-    <label for="ingreso">Ingreso Mensual:</label>
-    <input type="text" name="ingreso" required>
+    <!-- Datos básicos -->
+    <fieldset>
+      <legend>Datos Básicos</legend>
+      <label>Nombre:
+        <input type="text" name="nombre" required>
+      </label>
+      
 
-    <label for="mensaje">Declaraciones:</label>
-    <textarea name="mensaje" rows="5" required></textarea>
+      <!--
+      
+      <label>Ingreso Mensual:
+        <input type="text" name="ingreso" required>
+      </label>
+      
+      -->
 
+    </fieldset>
+
+    <!-- Pregunta 1 -->
+    <fieldset>
+      <legend>1. ¿Informas otros ingresos exentos?</legend>
+      <div class="options">
+        <label><input type="radio" name="ingresosExentos" value="no" checked> No</label>
+        <label><input type="radio" name="ingresosExentos" value="si"> Sí</label>
+      </div>
+      <div id="p1_extra" class="oculto">
+        <label><input type="checkbox" name="ingresos[]" value="prestamos"> Préstamos</label>
+        <label><input type="checkbox" name="ingresos[]" value="donativos"> Donativos</label>
+        <label><input type="checkbox" name="ingresos[]" value="premios"> Premios</label>
+        <label><input type="checkbox" name="ingresos[]" value="viaticos"> Viáticos cobrados</label>
+        <label><input type="checkbox" name="ingresos[]" value="casa"> Enajenación de casa habitación</label>
+        <label><input type="checkbox" name="ingresos[]" value="herencias"> Herencias o legados</label>
+      </div>
+    </fieldset>
+
+    <!-- Pregunta 2 -->
+    <fieldset>
+      <legend>2. ¿Tus ingresos se obtuvieron en copropiedad, sociedad conyugal o sucesión?</legend>
+      <div class="options">
+        <label><input type="radio" name="copropiedad" value="no" checked> No</label>
+        <label><input type="radio" name="copropiedad" value="si"> Sí</label>
+      </div>
+      <div id="p2_extra" class="oculto">
+        <div class="options">
+          <label><input type="radio" name="tipoCopropiedad" value="sociedad"> Sociedad conyugal</label>
+          <label><input type="radio" name="tipoCopropiedad" value="cooperacion"> Copropiedad</label>
+          <label><input type="radio" name="tipoCopropiedad" value="sucesion"> Sucesión</label>
+        </div>
+        <label>RFC del representante común:
+          <input type="text" name="rfc">
+        </label>
+        <label>Total de ingresos acumulables:
+          <input type="text" name="ingresosTotales">
+        </label>
+        <label>Total ISR pagado en el ejercicio:
+          <input type="text" name="isrPagado">
+        </label>
+        <label>Porcentaje de participación:
+          <input type="text" name="participacion">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Pregunta 3 -->
+    <fieldset>
+      <legend>3. ¿Tienes otros datos informativos que declarar?</legend>
+      <div class="options">
+        <label><input type="radio" name="otrosDatos" value="no" checked> No</label>
+        <label><input type="radio" name="otrosDatos" value="si"> Sí</label>
+      </div>
+      <div id="p3_extra" class="oculto">
+        <label>Ingresos por apoyos gubernamentales:
+          <input type="text" name="apoyos">
+        </label>
+        <label>Apoyos por sismos 2017:
+          <input type="text" name="apoyosSismos">
+        </label>
+        <label>Monto de condonación de deuda (casa):
+          <input type="text" name="condonacion">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Pregunta 4 -->
+    <fieldset>
+      <legend>4. ¿Optas por informar la PTU generada en el ejercicio?</legend>
+      <div class="options">
+        <label><input type="radio" name="ptu" value="no" checked> No</label>
+        <label><input type="radio" name="ptu" value="si"> Sí</label>
+      </div>
+      <div id="p4_extra" class="oculto">
+        <label>PTU generada en el ejercicio:
+          <input type="text" name="ptuMonto">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Pregunta 5 -->
+    <fieldset>
+      <legend>5. ¿Optas por dictaminar tus estados financieros?</legend>
+      <div class="options">
+        <label><input type="radio" name="dictaminar" value="no" checked> No</label>
+        <label><input type="radio" name="dictaminar" value="si"> Sí</label>
+      </div>
+    </fieldset>
+
+    <!-- Pregunta 6 -->
+    <fieldset>
+      <legend>6. ¿Tienes esquemas fiscales reportables que informar?</legend>
+      <div class="options">
+        <label><input type="radio" name="esquemas" value="no" checked> No</label>
+        <label><input type="radio" name="esquemas" value="si"> Sí</label>
+      </div>
+      <div id="p6_extra" class="oculto">
+        <div class="options">
+          <label><input type="radio" name="tipoEsquema" value="generalizado"> Generalizado</label>
+          <label><input type="radio" name="tipoEsquema" value="personalizado"> Personalizado</label>
+        </div>
+        <label>Número de identificación del esquema:
+          <input type="text" name="numEsquema">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Declaraciones adicionales -->
+    <fieldset>
+      <legend>Declaraciones adicionales</legend>
+      <textarea name="mensaje" rows="5"></textarea>
+    </fieldset>
+
+    <!-- Botón -->
     <button type="submit">Enviar</button>
   </form>
 
+  <script>
+    function toggleExtra(name, extraId) {
+      document.querySelectorAll(`input[name="${name}"]`).forEach(radio => {
+        radio.addEventListener('change', function() {
+          document.getElementById(extraId).style.display = (this.value === 'si') ? 'block' : 'none';
+        });
+      });
+    }
+    toggleExtra("ingresosExentos", "p1_extra");
+    toggleExtra("copropiedad", "p2_extra");
+    toggleExtra("otrosDatos", "p3_extra");
+    toggleExtra("ptu", "p4_extra");
+    toggleExtra("esquemas", "p6_extra");
+  </script>
 
 </body>
 </html>
-
