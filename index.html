@@ -132,6 +132,35 @@
     .btn:hover {
       background-color: #0056b3;
     }
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .tooltip .tooltip-text {
+      visibility: hidden;
+      width: 200px;
+      background-color: #333;
+      color: #fff;
+      text-align: left;
+      border-radius: 5px;
+      padding: 8px;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%; /* Ajusta la posición */
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .tooltip:hover .tooltip-text {
+      visibility: visible;
+      opacity: 1;
+    }
+
   </style>
 </head>
 <body>
@@ -145,7 +174,7 @@
   <br>
   <br>
   <p style="margin-top:20px; text-align:center;">
-    Formulario para declaracion anual.
+    Al formulario para declaracion anual.
     <br>
     <br>
     Da clic en continuar para proceder.
@@ -256,6 +285,7 @@ El Usuario reconoce haber leído, entendido y aceptado estos Términos y Condici
         naturales en que se le hizo llegar el enlace del formulario para que los colaboradores del despacho puedan tomar las medidas pertinentes.<br>
         -El llenado del formulario es responsabilidad del cliente, por lo que se recomienda revisar cuidadosamente cada uno de los puntos y/o consultarlo con los 
         miembros del despacho antes del envio.<br>
+        - Es responsabilidad del cliente el conservar toda documentación comprobatoria que respalde lo declarado en el siguiente formulario.<br>
     
     </p>
   </div>
@@ -278,9 +308,6 @@ El Usuario reconoce haber leído, entendido y aceptado estos Términos y Condici
       <label>Nombre completo:
         <input type="text" name="nombre" required>
       </label>
-      <label>CURP:
-        <input type="text" name="curp" required>
-      </label>
       <label>RFC:
         <input type="text" name="rfc" required>
       </label>
@@ -298,44 +325,58 @@ El Usuario reconoce haber leído, entendido y aceptado estos Términos y Condici
 
     <!-- Pregunta 1 -->
 <fieldset>
-  <legend>1. ¿Informas otros ingresos exentos?</legend>
-  <div class="options">
-    <label><input type="radio" name="ingresosExentos" value="no" checked> No</label>
-    <label><input type="radio" name="ingresosExentos" value="si"> Sí</label>
+  <legend>1. ¿obtuviste ingresos distintos a tu actividad empresarial y/o sueldos y salarios?
+
+    <span class="tooltip">❓
+      <span class="tooltip-text">Prestamos, donativos y/o premios, etc. Que en lo individual o en su conjunto, excedan de $600,000.00</span>
+    </span>
+
+  </legend>
+  
+
+
+<div class="options">
+  <label><input type="radio" name="ingresosExentos" value="no" checked> No</label>
+  <label><input type="radio" name="ingresosExentos" value="si"> Sí</label>
+</div>
+<div id="p1_extra" class="oculto">
+  
+  <div class="opcion-ingreso">
+    <label><input type="checkbox" name="ingresos[]" value="prestamos" onchange="toggleInput(this)"> Préstamos</label>
+    <input type="text" name="monto_prestamos" placeholder="$ monto" disabled>
   </div>
-  <div id="p1_extra" class="oculto">
-    
-    <div class="opcion-ingreso">
-      <label><input type="checkbox" name="ingresos[]" value="prestamos"> Préstamos</label>
-      <input type="text" name="monto_prestamos" placeholder="$ monto">
-    </div>
 
-    <div class="opcion-ingreso">
-      <label><input type="checkbox" name="ingresos[]" value="donativos"> Donativos</label>
-      <input type="text" name="monto_donativos" placeholder="$ monto">
-    </div>
-
-    <div class="opcion-ingreso">
-      <label><input type="checkbox" name="ingresos[]" value="premios"> Premios</label>
-      <input type="text" name="monto_premios" placeholder="$ monto">
-    </div>
-
-    <div class="opcion-ingreso">
-      <label><input type="checkbox" name="ingresos[]" value="viaticos"> Viáticos cobrados</label>
-      <input type="text" name="monto_viaticos" placeholder="$ monto">
-    </div>
-
-    <div class="opcion-ingreso">
-      <label><input type="checkbox" name="ingresos[]" value="casa"> Enajenación de casa habitación</label>
-      <input type="text" name="monto_casa" placeholder="$ monto">
-    </div>
-
-    <div class="opcion-ingreso">
-      <label><input type="checkbox" name="ingresos[]" value="herencias"> Herencias o legados</label>
-      <input type="text" name="monto_herencias" placeholder="$ monto">
-    </div>
-
+  <div class="opcion-ingreso">
+    <label><input type="checkbox" name="ingresos[]" value="donativos" onchange="toggleInput(this)"> Donativos</label>
+    <input type="text" name="monto_donativos" placeholder="$ monto" disabled>
   </div>
+
+  <div class="opcion-ingreso">
+    <label><input type="checkbox" name="ingresos[]" value="premios" onchange="toggleInput(this)"> Premios</label>
+    <input type="text" name="monto_premios" placeholder="$ monto" disabled>
+  </div>
+
+  <div class="opcion-ingreso">
+    <label><input type="checkbox" name="ingresos[]" value="viaticos" onchange="toggleInput(this)"> Viáticos cobrados</label>
+    <input type="text" name="monto_viaticos" placeholder="$ monto" disabled>
+  </div>
+
+  <div class="opcion-ingreso">
+    <label><input type="checkbox" name="ingresos[]" value="casa" onchange="toggleInput(this)"> Enajenación de casa habitación</label>
+    <input type="text" name="monto_casa" placeholder="$ monto" disabled>
+  </div>
+
+  <div class="opcion-ingreso">
+    <label><input type="checkbox" name="ingresos[]" value="herencias" onchange="toggleInput(this)"> Herencias o legados</label>
+    <input type="text" name="monto_herencias" placeholder="$ monto" disabled>
+  </div>
+
+</div>
+
+  
+ 
+
+
 </fieldset>
 
     <!-- Pregunta 2 -->
@@ -347,9 +388,20 @@ El Usuario reconoce haber leído, entendido y aceptado estos Términos y Condici
       </div>
       <div id="p2_extra" class="oculto">
         <div class="options">
-          <label><input type="radio" name="tipoCopropiedad" value="sociedad"> Sociedad conyugal</label>
-          <label><input type="radio" name="tipoCopropiedad" value="cooperacion"> Copropiedad</label>
-          <label><input type="radio" name="tipoCopropiedad" value="sucesion"> Sucesión</label>
+          <label><input type="radio" name="tipoCopropiedad" value="sociedad"> Sociedad conyugal <span class="tooltip">❓
+      <span class="tooltip-text">Régimen donde los bienes del matrimonio son compartidos por ambos cónyuges.</span>
+    </span>
+  </label>
+          <label><input type="radio" name="tipoCopropiedad" value="cooperacion"> Copropiedad <span class="tooltip">❓
+      <span class="tooltip-text"> Situación legal donde dos o más personas comparten la propiedad de un mismo bien.
+</span>
+    </span>
+  </label>
+          <label><input type="radio" name="tipoCopropiedad" value="sucesion"> Sucesión <span class="tooltip">❓
+      <span class="tooltip-text"> Transmisión legal de bienes, derechos y obligaciones de una persona fallecida a sus herederos.
+</span>
+    </span>
+  </label>
         </div>
         <label>RFC del representante común:
           <input type="text" name="rfc">
@@ -361,8 +413,19 @@ El Usuario reconoce haber leído, entendido y aceptado estos Términos y Condici
           <input type="text" name="isrPagado">
         </label>
         <label>Porcentaje de participación:
-          <input type="text" name="participacion">
-        </label>
+  <input type="number" name="participacion" id="participacion" oninput="validarPorcentaje()">
+</label>
+<script>
+  function validarPorcentaje() {
+    const input = document.getElementById('participacion');
+    if (input.value > 100) {
+      alert("El porcentaje no puede ser mayor a 100%");
+      input.value = 100;
+    }
+  }
+</script>
+
+
       </div>
     </fieldset>
 
@@ -377,7 +440,9 @@ El Usuario reconoce haber leído, entendido y aceptado estos Términos y Condici
         <label>Ingresos por apoyos gubernamentales:
           <input type="text" name="apoyos">
         </label>
-        <label>Apoyos por sismos 2017:
+        <label>Apoyo por contigencia de desastre natural: <span class="tooltip">❓
+      <span class="tooltip-text">Ejemplo sismo 09/2017</span>
+    </span>
           <input type="text" name="apoyosSismos">
         </label>
         <label>Monto de condonación de deuda (casa):
@@ -385,6 +450,26 @@ El Usuario reconoce haber leído, entendido y aceptado estos Términos y Condici
         </label>
       </div>
     </fieldset>
+
+
+
+
+
+    <fieldset>
+
+
+
+      <legend>Declaraciones adicionales</legend>
+
+
+      <textarea name="mensaje" rows="5"></textarea>
+
+
+    </fieldset>
+
+
+
+
 
     
     <!-- Botón -->
@@ -418,6 +503,15 @@ El Usuario reconoce haber leído, entendido y aceptado estos Términos y Condici
     toggleExtra("otrosDatos", "p3_extra");
   </script>
 
+<script>
+  function toggleInput(checkbox) {
+    const input = checkbox.closest('.opcion-ingreso').querySelector('input[type="text"]');
+    input.disabled = !checkbox.checked;
+    if (!checkbox.checked) {
+      input.value = ""; // opcional: limpiar el campo al desmarcar
+    }
+  }
+</script>
+
 </body>
 </html>
-
