@@ -132,6 +132,16 @@
     .btn:hover {
       background-color: #0056b3;
     }
+
+ legend {
+    display: flex;
+    justify-content: space-between; /* separa el texto del ícono */
+    align-items: center; /* alinea verticalmente */
+    width: 100%; /* para que abarque todo el fieldset */
+  }
+
+
+
     .tooltip {
       position: relative;
       display: inline-block;
@@ -185,19 +195,18 @@
 
   <!-- Pantalla 1: Bienvenida -->
 <div id="pantalla1" class="pantalla activa">
-  <h2>Bienvenid@</h2>
+  
   <br>
   <br>
   <img src="cf.png" alt="Logo ACO" style="max-width:100%; border-radius:12px;">
   <br>
   <br>
   <p style="margin-top:20px; text-align:center;">
-    Al formulario para declaracion anual.
     <br>
     <br>
-    Da clic en continuar para proceder.
+    Formulario de declaracion anual.
   </p>
-  <button class="btn" onclick="mostrarPantalla(2)">Continuar</button>
+  <button class="btn" onclick="mostrarPantalla(2)">Comenzar</button>
 </div>
 
 <!-- Pantalla 2: Términos y condiciones -->
@@ -330,7 +339,7 @@ El Usuario reconoce haber leído, entendido y aceptado estos Términos y Condici
 
   <div id="pantalla3" class="pantalla">
   <form action="https://formspree.io/f/mkgvvdlg" method="POST">
-    <h2>Formulario de Declaraciones</h2>
+    <h2>Formulario Informativo</h2>
 
     <!-- Datos básicos -->
     <fieldset>
@@ -350,15 +359,16 @@ El Usuario reconoce haber leído, entendido y aceptado estos Términos y Condici
 
 
 <fieldset>
-  <legend>1. ¿obtuviste ingresos distintos a tu actividad empresarial y/o sueldos y salarios?
+  <legend>
+    1. ¿Obtuviste ingresos distintos a tu actividad empresarial y/o sueldos y salarios?
 
-    <span class="tooltip">❓
-      <span class="tooltip-text">Prestamos, donativos y/o premios, etc. Que en lo individual o en su conjunto, excedan de $600,000.00</span>
+    <span class="tooltip">
+      <img src="info.png" alt="Información" style="width:16px; height:16px; vertical-align:middle;">
+      <span class="tooltip-text">
+        Préstamos, donativos y/o premios, etc. Que en lo individual o en su conjunto, excedan de $600,000.00
+      </span>
     </span>
-
   </legend>
-  
-
 
 <div class="options">
   <label><input type="radio" name="ingresosExentos" value="no" checked> No</label>
@@ -398,10 +408,6 @@ El Usuario reconoce haber leído, entendido y aceptado estos Términos y Condici
 
 </div>
 
-  
- 
-
-
 </fieldset>
 
     <!-- Pregunta 2 -->
@@ -413,19 +419,35 @@ El Usuario reconoce haber leído, entendido y aceptado estos Términos y Condici
       </div>
       <div id="p2_extra" class="oculto">
         <div class="options">
-          <label><input type="radio" name="tipoCopropiedad" value="sociedad"> Sociedad conyugal <span class="tooltip">❓
-      <span class="tooltip-text">Régimen donde los bienes del matrimonio son compartidos por ambos cónyuges.</span>
+          <label><input type="radio" name="tipoCopropiedad" value="sociedad"> Sociedad conyugal <span class="tooltip">
+      <img src="info.png" alt="Información" style="width:16px; height:16px; vertical-align:middle;">
+      <span class="tooltip-text">
+       Régimen donde los bienes del matrimonio son compartidos por ambos cónyuges.
+      </span>
     </span>
+  
   </label>
-          <label><input type="radio" name="tipoCopropiedad" value="cooperacion"> Copropiedad <span class="tooltip">❓
-      <span class="tooltip-text"> Situación legal donde dos o más personas comparten la propiedad de un mismo bien.
-</span>
+          <label><input type="radio" name="tipoCopropiedad" value="cooperacion"> Copropiedad <span class="tooltip">
+      <img src="info.png" alt="Información" style="width:16px; height:16px; vertical-align:middle;">
+      <span class="tooltip-text">
+       Situación legal donde dos o más personas comparten la propiedad de un mismo bien.
+      </span>
     </span>
+
+
+
+  
   </label>
-          <label><input type="radio" name="tipoCopropiedad" value="sucesion"> Sucesión <span class="tooltip">❓
-      <span class="tooltip-text"> Transmisión legal de bienes, derechos y obligaciones de una persona fallecida a sus herederos.
-</span>
+          <label><input type="radio" name="tipoCopropiedad" value="sucesion"> Sucesión <span class="tooltip">
+      <img src="info.png" alt="Información" style="width:16px; height:16px; vertical-align:middle;">
+      <span class="tooltip-text">
+       Transmisión legal de bienes, derechos y obligaciones de una persona fallecida a sus herederos.
+      </span>
     </span>
+  
+  
+  
+  
   </label>
         </div>
         <label>RFC del representante común:
@@ -470,18 +492,33 @@ El Usuario reconoce haber leído, entendido y aceptado estos Términos y Condici
       <input type="text" name="apoyos_monto" placeholder="Monto">
     </div>
 
+    
     <div class="opcion-doble">
-      <label>Apoyo por contingencia de desastre natural: 
-        <span class="tooltip">❓
-          <span class="tooltip-text">Ejemplo: Sismo CDMX 09/2017</span>
-        </span>
-      </label>
+      <label>Apoyo por contingencia de desastre natural:
+      <span class="tooltip">
+        <img src="info.png" alt="Información" style="width:16px; height:16px; vertical-align:middle;">
+        <span class="tooltip-text">
+       Ejemplo: Sismo CDMX 09/2017
+      </span>
+    </span>
+        
+      
       <input type="text" name="apoyosSismos_concepto" placeholder="Concepto">
       <input type="text" name="apoyosSismos_monto" placeholder="Monto">
     </div>
 
     <div class="opcion-doble">
-      <label>Condonación de deuda (casa):</label>
+        
+    </label>
+      <label>Condonación de deuda (casa):
+<span class="tooltip">
+      <img src="info.png" alt="Información" style="width:16px; height:16px; vertical-align:middle;">
+      <span class="tooltip-text">
+       Monto de la condonacion o remision de deuda de creditos otorgados para adquisicion de casa habitacion.
+      </span>
+    </span>
+
+      </label>
       <input type="text" name="condonacion_concepto" placeholder="Concepto">
       <input type="text" name="condonacion_monto" placeholder="Monto">
     </div>
