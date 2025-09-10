@@ -207,6 +207,72 @@
   border-radius: 6px;
 }
 
+
+
+
+
+/* 🌐 Estilos responsivos */
+@media (max-width: 768px) {
+  body {
+    padding: 15px;
+  }
+
+  form, .pantalla {
+    padding: 15px;
+    max-width: 100%;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  .options {
+    flex-direction: column; /* radio buttons uno debajo del otro */
+    gap: 8px;
+  }
+
+  .opcion-ingreso {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .opcion-ingreso input[type="text"] {
+    width: 100%; /* que se adapte a la pantalla */
+    margin-left: 0;
+    margin-top: 8px;
+  }
+
+  .opcion-doble input[type="text"] {
+    width: 100%;
+  }
+
+  button, .btn {
+    width: 100%;
+    font-size: 1rem;
+    padding: 14px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 1.1rem;
+  }
+
+  body {
+    font-size: 14px;
+  }
+
+  .terminos {
+    height: 150px; /* menos alto en móviles */
+  }
+}
+
+
   </style>
 </head>
 <body>
@@ -257,10 +323,10 @@
   <p>Los datos personales serán utilizados con las siguientes finalidades:</p>
   <ul>
     <li>Dar seguimiento a la solicitud o mensaje enviado a través del formulario.</li>
-    <li>Establecer comunicación directa con el Usuario para brindar asesoría o información.</li>
-    <li>Cumplir con obligaciones fiscales.</li>
+    <li>Establecer comunicación por mensajería instantánea con el usuario para asesoría e información.</li>
+    <li>Cumplir con obligaciones fiscales correspondientes.</li>
     <li>Llevar un control interno y seguimiento de situación particular de clientes.</li>
-    <li>Los datos no serán utilizados para finalidades distintos ni transferidos sin consentimiento, salvo requerimiento de la autoridad competente.</li>
+    <li>Los datos no serán utilizados para fines distintos a los autorizados y/o requeridos por la autoridad competente.</li>
   </ul>
 
   <strong>5. USO DE SERVICIOS DE TERCEROS (Formspree)</strong>
