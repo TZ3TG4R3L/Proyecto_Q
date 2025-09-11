@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,19 +11,22 @@
       background: #f2f4f8;
       padding: 40px;
     }
+
     form {
       background: #fff;
       padding: 25px;
       max-width: 800px;
       margin: auto;
       border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
+
     h2 {
       text-align: center;
       margin-bottom: 25px;
       color: #333;
     }
+
     fieldset {
       border: 1px solid #ddd;
       border-radius: 8px;
@@ -30,34 +34,41 @@
       margin-bottom: 20px;
       background: #fafafa;
     }
+
     legend {
       font-weight: bold;
       color: #007bff;
       padding: 0 10px;
     }
+
     label {
       display: block;
       margin-top: 10px;
       font-weight: normal;
       color: #444;
     }
-    input[type="text"], textarea {
+
+    input[type="text"],
+    textarea {
       width: 100%;
       padding: 8px;
       margin-top: 5px;
       border: 1px solid #ccc;
       border-radius: 6px;
     }
+
     .options {
       display: flex;
       gap: 15px;
       margin-top: 10px;
       flex-wrap: wrap;
     }
+
     .options label {
       font-weight: normal;
       margin: 0;
     }
+
     .oculto {
       display: none;
       margin-top: 15px;
@@ -66,6 +77,7 @@
       background: #f0f8ff;
       border-radius: 6px;
     }
+
     button {
       display: block;
       margin: 30px auto 0 auto;
@@ -78,9 +90,11 @@
       cursor: pointer;
       transition: background 0.3s;
     }
+
     button:hover {
       background-color: #0056b3;
     }
+
     .opcion-ingreso {
       display: flex;
       align-items: center;
@@ -104,11 +118,13 @@
       max-width: 800px;
       margin: auto;
       border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
+
     .pantalla.activa {
       display: block;
     }
+
     .terminos {
       border: 1px solid #ccc;
       padding: 15px;
@@ -117,21 +133,25 @@
       background: #fafafa;
       margin-bottom: 15px;
     }
+
     .terminos strong {
-  display: block;
-  margin-top: 20px;
-  font-size: 1.1em;
-  color: #222;
-}
+      display: block;
+      margin-top: 20px;
+      font-size: 1.1em;
+      color: #222;
+    }
 
-.terminos ul {
-  margin: 10px 0 20px 30px; /* sangría y espacio */
-  padding-left: 20px;
-}
+    .terminos ul {
+      margin: 10px 0 20px 30px;
+      /* sangría y espacio */
+      padding-left: 20px;
+    }
 
-.terminos li {
-  margin-bottom: 8px; /* espacio entre puntos */
-}
+    .terminos li {
+      margin-bottom: 8px;
+      /* espacio entre puntos */
+    }
+
     .btn {
       display: block;
       margin: 30px auto 0 auto;
@@ -144,16 +164,20 @@
       cursor: pointer;
       transition: background 0.3s;
     }
+
     .btn:hover {
       background-color: #0056b3;
     }
 
- legend {
-    display: flex;
-    justify-content: space-between; /* separa el texto del ícono */
-    align-items: center; /* alinea verticalmente */
-    width: 100%; /* para que abarque todo el fieldset */
-  }
+    legend {
+      display: flex;
+      justify-content: space-between;
+      /* separa el texto del ícono */
+      align-items: center;
+      /* alinea verticalmente */
+      width: 100%;
+      /* para que abarque todo el fieldset */
+    }
 
 
 
@@ -174,7 +198,8 @@
       padding: 8px;
       position: absolute;
       z-index: 1;
-      bottom: 125%; /* Ajusta la posición */
+      bottom: 125%;
+      /* Ajusta la posición */
       left: 50%;
       transform: translateX(-50%);
       opacity: 0;
@@ -185,601 +210,612 @@
       visibility: visible;
       opacity: 1;
     }
+
     .opcion-doble {
-  margin-top: 15px;
-  display: flex;
-  flex-direction: column;
-}
+      margin-top: 15px;
+      display: flex;
+      flex-direction: column;
+    }
 
-.opcion-doble label {
-  display: flex;                  /* coloca texto + ícono en la misma línea */
-  justify-content: space-between; /* separa texto a la izquierda e ícono a la derecha */
-  align-items: center;            /* centra verticalmente */
-  font-weight: bold;
-  margin-bottom: 5px;
-}
+    .opcion-doble label {
+      display: flex;
+      /* coloca texto + ícono en la misma línea */
+      justify-content: space-between;
+      /* separa texto a la izquierda e ícono a la derecha */
+      align-items: center;
+      /* centra verticalmente */
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
 
-.opcion-doble input[type="text"] {
-  margin-top: 5px;
-  margin-bottom: 5px;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
-
-
-
-
-
-/* 🌐 Estilos responsivos */
-@media (max-width: 768px) {
-  body {
-    padding: 15px;
-  }
-
-  form, .pantalla {
-    padding: 15px;
-    max-width: 100%;
-  }
-
-  h2 {
-    font-size: 1.3rem;
-  }
-
-  .options {
-    flex-direction: column; /* radio buttons uno debajo del otro */
-    gap: 8px;
-  }
-
-  .opcion-ingreso {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .opcion-ingreso input[type="text"] {
-    width: 100%; /* que se adapte a la pantalla */
-    margin-left: 0;
-    margin-top: 8px;
-  }
-
-  .opcion-doble input[type="text"] {
-    width: 100%;
-  }
-
-  button, .btn {
-    width: 100%;
-    font-size: 1rem;
-    padding: 14px;
-  }
-
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-}
-
-@media (max-width: 480px) {
-  h2 {
-    font-size: 1.1rem;
-  }
-
-  body {
-    font-size: 14px;
-  }
-
-  .terminos {
-    height: 150px; /* menos alto en móviles */
-  }
-  
-
-#rfc {
-  border: 1px solid #ccc;
-  padding: 8px;
-  border-radius: 6px;
-  outline: none;
-  transition: background-color 0.3s;
-}
-#rfc.valido {
-  background-color: #d4edda; /* verde claro interno */
-}
-#rfc.invalido {
-  background-color: #f8d7da; /* rojo claro interno */
-}
-#rfc-msg {
-  font-size: 0.9em;
-  margin-left: 5px;
-}
-#rfc-msg.ok {
-  color: green;
-}
-#rfc-msg.error {
-  color: red;
-}
+    .opcion-doble input[type="text"] {
+      margin-top: 5px;
+      margin-bottom: 5px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
 
 
 
 
 
-}
+    /* 🌐 Estilos responsivos */
+    @media (max-width: 768px) {
+      body {
+        padding: 15px;
+      }
+
+      form,
+      .pantalla {
+        padding: 15px;
+        max-width: 100%;
+      }
+
+      h2 {
+        font-size: 1.3rem;
+      }
+
+      .options {
+        flex-direction: column;
+        /* radio buttons uno debajo del otro */
+        gap: 8px;
+      }
+
+      .opcion-ingreso {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .opcion-ingreso input[type="text"] {
+        width: 100%;
+        /* que se adapte a la pantalla */
+        margin-left: 0;
+        margin-top: 8px;
+      }
+
+      .opcion-doble input[type="text"] {
+        width: 100%;
+      }
+
+      button,
+      .btn {
+        width: 100%;
+        font-size: 1rem;
+        padding: 14px;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h2 {
+        font-size: 1.1rem;
+      }
+
+      body {
+        font-size: 14px;
+      }
+
+      .terminos {
+        height: 150px;
+        /* menos alto en móviles */
+      }
 
 
+      #rfc {
+        border: 1px solid #ccc;
+        padding: 8px;
+        border-radius: 6px;
+        outline: none;
+        transition: background-color 0.3s;
+      }
+
+      #rfc.valido {
+        background-color: #d4edda;
+        /* verde claro interno */
+      }
+
+      #rfc.invalido {
+        background-color: #f8d7da;
+        /* rojo claro interno */
+      }
+
+      #rfc-msg {
+        font-size: 0.9em;
+        margin-left: 5px;
+      }
+
+      #rfc-msg.ok {
+        color: green;
+      }
+
+      #rfc-msg.error {
+        color: red;
+      }
+
+
+
+
+
+    }
   </style>
 </head>
+
 <body>
 
   <!-- Pantalla 1: Bienvenida -->
-<div id="pantalla1" class="pantalla activa">
-  
-  <br>
-  <br>
-  <img src="cf.png" alt="Logo ACO" style="max-width:100%; border-radius:12px;">
-  <br>
-  <br>
-  <p style="margin-top:20px; text-align:center;">
+  <div id="pantalla1" class="pantalla activa">
+
     <br>
     <br>
-    <strong>FORMULARIO DE DECLARACIÓN ANUAL</strong>
-  </p>
-  <button class="btn" onclick="mostrarPantalla(2)">Comenzar</button>
-</div>
+    <img src="cf.png" alt="Logo ACO" style="max-width:100%; border-radius:12px;">
+    <br>
+    <br>
+    <p style="margin-top:20px; text-align:center;">
+      <br>
+      <br>
+      <strong>FORMULARIO DE DECLARACIÓN ANUAL</strong>
+    </p>
+    <button class="btn" onclick="mostrarPantalla(2)">Comenzar</button>
+  </div>
 
-<!-- Pantalla 2: Términos y condiciones -->
-<div id="pantalla2" class="pantalla">
-  <h2>Términos y Condiciones</h2>
-  <div class="terminos">
-  <p style="text-align: right;">Última actualización: 08/09/2025</p>
+  <!-- Pantalla 2: Términos y condiciones -->
+  <div id="pantalla2" class="pantalla">
+    <h2>Términos y Condiciones</h2>
+    <div class="terminos">
+      <p style="text-align: right;">Última actualización: 08/09/2025</p>
 
-  <strong>1. OBJETO</strong>
-  <p>
-    El presente documento establece los Términos y Condiciones aplicables al uso del formulario de contacto alojado y procesado por Formspree y gestionado adicionalmente por Apps Para Contadores (en adelante, “el Despacho”), respecto al tratamiento de los datos personales proporcionados por el usuario (en adelante, “el Usuario”).
-  </p>
-  <p>Al completar y enviar el formulario, el Usuario acepta expresamente estos Términos y Condiciones.</p>
+      <strong>1. OBJETO</strong>
+      <p>
+        El presente documento establece los Términos y Condiciones aplicables al uso del formulario de contacto alojado
+        y procesado por Formspree y gestionado adicionalmente por Apps Para Contadores (en adelante, “el Despacho”),
+        respecto al tratamiento de los datos personales proporcionados por el usuario (en adelante, “el Usuario”).
+      </p>
+      <p>Al completar y enviar el formulario, el Usuario acepta expresamente estos Términos y Condiciones.</p>
 
-  <strong>2. RESPONSABLE DEL TRATAMIENTO DE DATOS PERSONALES</strong>
-  <p>
-    El responsable del tratamiento de los datos personales proporcionados por el Usuario es el Despacho, el cual garantiza la confidencialidad, integridad y disponibilidad de la información conforme a la legislación aplicable en materia de protección de datos personales.
-  </p>
+      <strong>2. RESPONSABLE DEL TRATAMIENTO DE DATOS PERSONALES</strong>
+      <p>
+        El responsable del tratamiento de los datos personales proporcionados por el Usuario es el Despacho, el cual
+        garantiza la confidencialidad, integridad y disponibilidad de la información conforme a la legislación aplicable
+        en materia de protección de datos personales.
+      </p>
 
-  <strong>3. DATOS PERSONALES RECABADOS</strong>
-  <p>A través del formulario, se podrán recabar los siguientes datos personales:</p>
-  <ul>
-    <li>Nombre completo.</li>
-    <li>RFC.</li>
-    <li>Información complementaria de ingresos para declaración anual.</li>
-    <li>Cualquier información adicional que el Usuario incluya voluntariamente en el campo de mensaje.</li>
-  </ul>
+      <strong>3. DATOS PERSONALES RECABADOS</strong>
+      <p>A través del formulario, se podrán recabar los siguientes datos personales:</p>
+      <ul>
+        <li>Nombre completo.</li>
+        <li>RFC.</li>
+        <li>Información complementaria de ingresos para declaración anual.</li>
+        <li>Cualquier información adicional que el Usuario incluya voluntariamente en el campo de mensaje.</li>
+      </ul>
 
-  <strong>4. FINALIDADES DEL TRATAMIENTO</strong>
-  <p>Los datos personales serán utilizados con las siguientes finalidades:</p>
-  <ul>
-    <li>Dar seguimiento a la solicitud o mensaje enviado a través del formulario.</li>
-    <li>Establecer comunicación por mensajería instantánea con el usuario para asesoría e información.</li>
-    <li>Cumplir con obligaciones fiscales correspondientes.</li>
-    <li>Llevar un control interno y seguimiento de situación particular de clientes.</li>
-    <li>Los datos no serán utilizados para fines distintos a los autorizados y/o requeridos por la autoridad competente.</li>
-  </ul>
+      <strong>4. FINALIDADES DEL TRATAMIENTO</strong>
+      <p>Los datos personales serán utilizados con las siguientes finalidades:</p>
+      <ul>
+        <li>Dar seguimiento a la solicitud o mensaje enviado a través del formulario.</li>
+        <li>Establecer comunicación por mensajería instantánea con el usuario para asesoría e información.</li>
+        <li>Cumplir con obligaciones fiscales correspondientes.</li>
+        <li>Llevar un control interno y seguimiento de situación particular de clientes.</li>
+        <li>Los datos no serán utilizados para fines distintos a los autorizados y/o requeridos por la autoridad
+          competente.</li>
+      </ul>
 
-  <strong>5. USO DE SERVICIOS DE TERCEROS (Formspree)</strong>
-  <p>
-    El formulario está implementado con el servicio de terceros Formspree, lo cual implica que los datos enviados serán procesados por dicho proveedor externo. Formspree opera conforme a sus propias políticas de privacidad y términos de uso, disponibles en <a href="https://formspree.io/legal/privacy-policy">https://formspree.io/legal/privacy-policy</a>
-  </p>
-  <p>
-    Nuestra corporación ha verificado que Formspree cuenta con medidas de seguridad adecuadas para el resguardo de la información. No obstante, al utilizar el formulario, el Usuario entiende y acepta que sus datos serán compartidos con dicho tercero únicamente para efectos del procesamiento del formulario.
-  </p>
+      <strong>5. USO DE SERVICIOS DE TERCEROS (Formspree)</strong>
+      <p>
+        El formulario está implementado con el servicio de terceros Formspree, lo cual implica que los datos enviados
+        serán procesados por dicho proveedor externo. Formspree opera conforme a sus propias políticas de privacidad y
+        términos de uso, disponibles en <a
+          href="https://formspree.io/legal/privacy-policy">https://formspree.io/legal/privacy-policy</a>
+      </p>
+      <p>
+        Nuestra corporación ha verificado que Formspree cuenta con medidas de seguridad adecuadas para el resguardo de
+        la información. No obstante, al utilizar el formulario, el Usuario entiende y acepta que sus datos serán
+        compartidos con dicho tercero únicamente para efectos del procesamiento del formulario.
+      </p>
 
-  <strong>6. DERECHOS</strong>
-  <p>De conformidad con la LFPDPPP, el Usuario tiene derecho a:</p>
-  <ul>
-    <li>Acceder a sus datos personales en posesión del Despacho.</li>
-    <li>Rectificar los datos cuando sean inexactos o incompletos.</li>
-    <li>Cancelar sus datos personales cuando considere que no están siendo tratados conforme a la Ley.</li>
-    <li>Oponerse al tratamiento de sus datos personales por causa legítima.</li>
-  </ul>
-  <p>Para ejercer estos derechos, el Usuario deberá enviar una solicitud por escrito al correo electrónico: abraham.hernandez@consultoriafiscalgdl.com con copia a (correo del administrador), con la siguiente información:</p>
-  <ul>
-    <li>Nombre completo del titular.</li>
-    <li>Descripción clara del derecho que desea ejercer.</li>
-    <li>Copia de una identificación oficial.</li>
-    <li>En su caso, documentos que acrediten la representación legal.</li>
-  </ul>
-  <p>
-    El Despacho responderá la solicitud en un plazo no mayor a 20 días hábiles, contados a partir de la recepción de la misma, conforme a lo establecido en la LFPDPPP.
-  </p>
+      <strong>6. DERECHOS</strong>
+      <p>De conformidad con la LFPDPPP, el Usuario tiene derecho a:</p>
+      <ul>
+        <li>Acceder a sus datos personales en posesión del Despacho.</li>
+        <li>Rectificar los datos cuando sean inexactos o incompletos.</li>
+        <li>Cancelar sus datos personales cuando considere que no están siendo tratados conforme a la Ley.</li>
+        <li>Oponerse al tratamiento de sus datos personales por causa legítima.</li>
+      </ul>
+      <p>Para ejercer estos derechos, el Usuario deberá enviar una solicitud por escrito al correo electrónico:
+        abraham.hernandez@consultoriafiscalgdl.com con copia a (correo del administrador), con la siguiente información:
+      </p>
+      <ul>
+        <li>Nombre completo del titular.</li>
+        <li>Descripción clara del derecho que desea ejercer.</li>
+        <li>Copia de una identificación oficial.</li>
+        <li>En su caso, documentos que acrediten la representación legal.</li>
+      </ul>
+      <p>
+        El Despacho responderá la solicitud en un plazo no mayor a 20 días hábiles, contados a partir de la recepción de
+        la misma, conforme a lo establecido en la LFPDPPP.
+      </p>
 
-  <strong>7. MEDIDAS DE SEGURIDAD</strong>
-  <p>
-    El Despacho ha implementado medidas de seguridad administrativas, técnicas y físicas para proteger los datos personales contra daño, pérdida, alteración, destrucción o el uso, acceso o tratamiento no autorizado.
-  </p>
+      <strong>7. MEDIDAS DE SEGURIDAD</strong>
+      <p>
+        El Despacho ha implementado medidas de seguridad administrativas, técnicas y físicas para proteger los datos
+        personales contra daño, pérdida, alteración, destrucción o el uso, acceso o tratamiento no autorizado.
+      </p>
 
-  <strong>8. CONSERVACIÓN DE LOS DATOS</strong>
-  <p>
-    Los datos personales proporcionados serán conservados únicamente durante el tiempo necesario para cumplir con las finalidades del tratamiento, y posteriormente serán eliminados o anonimizados, conforme a las políticas internas del Despacho y la normatividad aplicable.
-  </p>
+      <strong>8. CONSERVACIÓN DE LOS DATOS</strong>
+      <p>
+        Los datos personales proporcionados serán conservados únicamente durante el tiempo necesario para cumplir con
+        las finalidades del tratamiento, y posteriormente serán eliminados o anonimizados, conforme a las políticas
+        internas del Despacho y la normatividad aplicable.
+      </p>
 
-  <strong>9. MODIFICACIONES A LOS TÉRMINOS Y CONDICIONES</strong>
-  <p>
-    El Despacho se reserva el derecho de modificar, en cualquier momento, los presentes Términos y Condiciones. Cualquier cambio será notificado a través del sitio web o medios de contacto proporcionados por el Usuario.
-  </p>
+      <strong>9. MODIFICACIONES A LOS TÉRMINOS Y CONDICIONES</strong>
+      <p>
+        El Despacho se reserva el derecho de modificar, en cualquier momento, los presentes Términos y Condiciones.
+        Cualquier cambio será notificado a través del sitio web o medios de contacto proporcionados por el Usuario.
+      </p>
 
-  <strong>10. ACEPTACIÓN</strong>
-  <p>
-    El Usuario reconoce haber leído, entendido y aceptado estos Términos y Condiciones. El envío del formulario implica la aceptación expresa del tratamiento de sus datos personales en los términos aquí descritos.
-  </p>
+      <strong>10. ACEPTACIÓN</strong>
+      <p>
+        El Usuario reconoce haber leído, entendido y aceptado estos Términos y Condiciones. El envío del formulario
+        implica la aceptación expresa del tratamiento de sus datos personales en los términos aquí descritos.
+      </p>
 
-  <strong>11. POLÍTICA INTERNA</strong>
-  <ul>
-    <li>El formulario debe ser llenado en su totalidad, de lo contrario no será válido.</li>
-    <li>La fecha límite de llenado es el 20 de abril a las 23:59 hrs del presente año.</li>
-    <li>En caso de omitir el llenado, los datos informativos serán capturados por el personal operativo con la información disponible.</li>
-    <li>Si la presentación de la declaración anual es en fechas extemporáneas (posteriores al 30 de abril), el cliente tendrá 5 días hábiles para hacernos llegar los datos solicitados.</li>
-    <li>Si por alguna circunstancia imprevista el cliente no puede cumplir con lo anterior, deberá notificarlo dentro de los primeros 7 días naturales desde que recibió el enlace del formulario.</li>
-    <li>El llenado del formulario es responsabilidad del cliente; se recomienda revisarlo cuidadosamente y/o consultarlo con el despacho antes de enviarlo.</li>
-    <li>Es responsabilidad del cliente conservar toda documentación comprobatoria que respalde lo declarado en el formulario.</li>
-  </ul>
-</div>
-  <label>
-    <input type="checkbox" id="acepto"> Acepto los términos y condiciones
-  </label>
-  <button class="btn" onclick="continuarFormulario()">Aceptar y continuar</button>
-</div>
+      <strong>11. POLÍTICA INTERNA</strong>
+      <ul>
+        <li>El formulario debe ser llenado en su totalidad, de lo contrario no será válido.</li>
+        <li>La fecha límite de llenado es el 20 de abril a las 23:59 hrs del presente año.</li>
+        <li>En caso de omitir el llenado, los datos informativos serán capturados por el personal operativo con la
+          información disponible.</li>
+        <li>Si la presentación de la declaración anual es en fechas extemporáneas (posteriores al 30 de abril), el
+          cliente tendrá 5 días hábiles para hacernos llegar los datos solicitados.</li>
+        <li>Si por alguna circunstancia imprevista el cliente no puede cumplir con lo anterior, deberá notificarlo
+          dentro de los primeros 7 días naturales desde que recibió el enlace del formulario.</li>
+        <li>El llenado del formulario es responsabilidad del cliente; se recomienda revisarlo cuidadosamente y/o
+          consultarlo con el despacho antes de enviarlo.</li>
+        <li>Es responsabilidad del cliente conservar toda documentación comprobatoria que respalde lo declarado en el
+          formulario.</li>
+      </ul>
+    </div>
+    <label>
+      <input type="checkbox" id="acepto"> Acepto los términos y condiciones
+    </label>
+    <button class="btn" onclick="continuarFormulario()">Aceptar y continuar</button>
+  </div>
 
 
 
 
   <div id="pantalla3" class="pantalla">
-  <form action="https://formspree.io/f/mkgvvdlg" method="POST">
-    <h2>Formulario Informativo</h2>
+    <form action="https://formspree.io/f/mkgvvdlg" method="POST">
+      <h2>Formulario Informativo</h2>
 
-    <!-- Datos básicos -->
-    <fieldset>
-      
-      <label>Nombre completo:
-        <input type="text" name="nombre" required>
-      </label>
+      <!-- Datos básicos -->
+      <fieldset>
 
-      <label for="rfc">RFC:
-<input 
-  type="text" 
-  id="rfc" 
-  name="rfc" 
-  required 
-  minlength="12" 
-  maxlength="13" 
-  pattern="^([A-ZÑ&]{3,4})(\\d{2})(0[1-9]|1[0-2])(0[1-9]|[12]\\d|3[01])[A-Z\\d]{3}$" 
-  title="Ingresa un RFC válido (12 o 13 caracteres, ejemplo: ABC800101XXX o ABCD800101XXX)" 
-  style="text-transform: uppercase;" 
-  oninput="this.value = this.value.toUpperCase(); validarRFC(this)">
-<span id="rfc-msg"></span>
-</label>
+        <label>Nombre completo:
+          <input type="text" name="nombre" required>
+        </label>
 
-    </fieldset>
+        <label for="rfc">RFC:
+          <input type="text" id="rfc" name="rfc" required minlength="12" maxlength="13"
+            pattern="^([A-ZÑ&]{3,4})(\\d{2})(0[1-9]|1[0-2])(0[1-9]|[12]\\d|3[01])[A-Z\\d]{3}$"
+            title="Ingresa un RFC válido (12 o 13 caracteres, ejemplo: ABC800101XXX o ABCD800101XXX)"
+            style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase(); validarRFC(this)">
+          <span id="rfc-msg"></span>
+        </label>
 
-<h5 style="text-align: center;">En caso de duda con un concepto posicionar el mouse sobre los simbolos de información <img src="info.png" alt="Información" style="width:16px; height:16px; vertical-align:middle;"></h5>
+      </fieldset>
+
+      <h5 style="text-align: center;">En caso de duda con un concepto posicionar el mouse sobre los simbolos de
+        información <img src="info.png" alt="Información" style="width:16px; height:16px; vertical-align:middle;"></h5>
 
 
-    <!-- Pregunta 1 -->
+      <!-- Pregunta 1 -->
 
 
-<fieldset>
-  <legend>
-    1. ¿Obtuviste ingresos distintos a tu actividad empresarial y/o sueldos y salarios?
+      <fieldset>
+        <legend>
+          1. ¿Obtuviste ingresos distintos a tu actividad empresarial y/o sueldos y salarios?
 
-    <span class="tooltip">
-      <img src="info.png" alt="Información" style="width:16px; height:16px; vertical-align:middle;">
-      <span class="tooltip-text">
-        Préstamos, donativos y/o premios, etc. Que en lo individual o en su conjunto, excedan de $600,000.00
-      </span>
-    </span>
-  </legend>
+          <span class="tooltip">
+            <img src="info.png" alt="Información" style="width:16px; height:16px; vertical-align:middle;">
+            <span class="tooltip-text">
+              Préstamos, donativos y/o premios, etc. Que en lo individual o en su conjunto, excedan de $600,000.00
+            </span>
+          </span>
+        </legend>
 
-<div class="options">
-  <label><input type="radio" name="ingresosExentos" value="no" checked> No</label>
-  <label><input type="radio" name="ingresosExentos" value="si"> Sí</label>
-</div>
-<div id="p1_extra" class="oculto">
-  
-  <div class="opcion-ingreso">
-  <label>
-    <input type="checkbox" name="ingresos[]" value="prestamos" onchange="toggleInput(this)"> Préstamos
-  </label>
-  <input 
-    type="text" 
-    name="monto_prestamos" 
-    placeholder="$ monto" 
-    disabled
-    inputmode="numeric" 
-    oninput="formatearMiles(this)">
-</div>
-
-
-  <div class="opcion-ingreso">
-    <label><input type="checkbox" name="ingresos[]" value="donativos" onchange="toggleInput(this)"> Donativos</label>
-    <input 
-    type="text" 
-    name="monto_donativos" 
-    placeholder="$ monto" 
-    disabled
-    inputmode="numeric" 
-    oninput="formatearMiles(this)">
-  </div>
-
-  <div class="opcion-ingreso">
-    <label><input type="checkbox" name="ingresos[]" value="premios" onchange="toggleInput(this)"> Premios</label>
-    <input 
-    type="text" 
-    name="monto_premios" 
-    placeholder="$ monto" 
-    disabled
-    inputmode="numeric" 
-    oninput="formatearMiles(this)">
-  </div>
-
-  <div class="opcion-ingreso">
-    <label><input type="checkbox" name="ingresos[]" value="viaticos" onchange="toggleInput(this)"> Viáticos cobrados</label>
-    <input 
-    type="text" 
-    name="monto_viaticos" 
-    placeholder="$ monto" 
-    disabled
-    inputmode="numeric" 
-    oninput="formatearMiles(this)">
-  </div>
-
-  <div class="opcion-ingreso">
-    <label><input type="checkbox" name="ingresos[]" value="casa" onchange="toggleInput(this)"> Enajenación de casa habitación</label>
-    <input 
-    type="text" 
-    name="monto_casa" 
-    placeholder="$ monto" 
-    disabled
-    inputmode="numeric" 
-    oninput="formatearMiles(this)">
-  </div>
-
-  <div class="opcion-ingreso">
-    <label><input type="checkbox" name="ingresos[]" value="herencias" onchange="toggleInput(this)"> Herencias o legados</label>
-    <input 
-    type="text" 
-    name="monto_herencias" 
-    placeholder="$ monto" 
-    disabled
-    inputmode="numeric" 
-    oninput="formatearMiles(this)">
-  </div>
-
-</div>
-
-</fieldset>
-
-
-
-
-    <!-- Pregunta 2 -->
-    <fieldset>
-      <legend>2. ¿Tus ingresos se obtuvieron en copropiedad, sociedad conyugal o sucesión?</legend>
-      <div class="options">
-        <label><input type="radio" name="copropiedad" value="no" checked> No</label>
-        <label><input type="radio" name="copropiedad" value="si"> Sí</label>
-      </div>
-      <div id="p2_extra" class="oculto">
         <div class="options">
-          <label><input type="radio" name="tipoCopropiedad" value="sociedad"> Sociedad conyugal <span class="tooltip">
-      <img src="info.png" alt="Información" style="width:16px; height:16px; vertical-align:middle;">
-      <span class="tooltip-text">
-       Régimen donde los bienes del matrimonio son compartidos por ambos cónyuges.
-      </span>
-    </span>
-  
-  </label>
-          <label><input type="radio" name="tipoCopropiedad" value="cooperacion"> Copropiedad <span class="tooltip">
-      <img src="info.png" alt="Información" style="width:16px; height:16px; vertical-align:middle;">
-      <span class="tooltip-text">
-       Situación legal donde dos o más personas comparten la propiedad de un mismo bien.
-      </span>
-    </span>
-  </label>
+          <label><input type="radio" name="ingresosExentos" value="no" checked> No</label>
+          <label><input type="radio" name="ingresosExentos" value="si"> Sí</label>
+        </div>
+        <div id="p1_extra" class="oculto">
+
+          <div class="opcion-ingreso">
+            <label>
+              <input type="checkbox" name="ingresos[]" value="prestamos" onchange="toggleInput(this)"> Préstamos
+            </label>
+            <input type="text" name="monto_prestamos" placeholder="$ monto" disabled inputmode="numeric"
+              oninput="formatearMiles(this)">
+          </div>
+
+
+          <div class="opcion-ingreso">
+            <label><input type="checkbox" name="ingresos[]" value="donativos" onchange="toggleInput(this)">
+              Donativos</label>
+            <input type="text" name="monto_donativos" placeholder="$ monto" disabled inputmode="numeric"
+              oninput="formatearMiles(this)">
+          </div>
+
+          <div class="opcion-ingreso">
+            <label><input type="checkbox" name="ingresos[]" value="premios" onchange="toggleInput(this)">
+              Premios</label>
+            <input type="text" name="monto_premios" placeholder="$ monto" disabled inputmode="numeric"
+              oninput="formatearMiles(this)">
+          </div>
+
+          <div class="opcion-ingreso">
+            <label><input type="checkbox" name="ingresos[]" value="viaticos" onchange="toggleInput(this)"> Viáticos
+              cobrados</label>
+            <input type="text" name="monto_viaticos" placeholder="$ monto" disabled inputmode="numeric"
+              oninput="formatearMiles(this)">
+          </div>
+
+          <div class="opcion-ingreso">
+            <label><input type="checkbox" name="ingresos[]" value="casa" onchange="toggleInput(this)"> Enajenación de
+              casa habitación</label>
+            <input type="text" name="monto_casa" placeholder="$ monto" disabled inputmode="numeric"
+              oninput="formatearMiles(this)">
+          </div>
+
+          <div class="opcion-ingreso">
+            <label><input type="checkbox" name="ingresos[]" value="herencias" onchange="toggleInput(this)"> Herencias o
+              legados</label>
+            <input type="text" name="monto_herencias" placeholder="$ monto" disabled inputmode="numeric"
+              oninput="formatearMiles(this)">
+          </div>
+
+        </div>
+
+      </fieldset>
 
 
 
-    <label><input type="radio" name="tipoCopropiedad" value="sucesion"> Sucesión <span class="tooltip">
-      <img src="info.png" alt="Información" style="width:16px; height:16px; vertical-align:middle;">
-      <span class="tooltip-text">
-       Transmisión legal de bienes, derechos y obligaciones de una persona fallecida a sus herederos.
-      </span>
-    </span>
-  </label>
-        
 
-    </div>
+      <!-- Pregunta 2 -->
+      <fieldset>
+        <legend>2. ¿Tus ingresos se obtuvieron en copropiedad, sociedad conyugal o sucesión?</legend>
+        <div class="options">
+          <label><input type="radio" name="copropiedad" value="no" checked> No</label>
+          <label><input type="radio" name="copropiedad" value="si"> Sí</label>
+        </div>
+        <div id="p2_extra" class="oculto">
 
-        <label>RFC del representante común:
-  <input 
-    type="text" 
-    name="rfc_representante" 
-    required 
-    minlength="12" 
-    maxlength="13" 
-    pattern="^([A-ZÑ&]{3,4})(\d{2})(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])[A-Z\d]{3}$" 
-    title="Ingresa un RFC válido (12 o 13 caracteres)" 
-    style="text-transform: uppercase;" 
-    oninput="this.value = this.value.toUpperCase();">
-</label>
-        <label>Total de ingresos acumulables:
-          <input type="text" name="ingresosTotales">
+          <div class="options">
+            <label><input type="radio" name="tipoCopropiedad" value="sociedad"> Sociedad conyugal <span class="tooltip">
+                <img src="info.png" alt="Información" style="width:16px; height:16px; vertical-align:middle;">
+                <span class="tooltip-text">
+                  Régimen donde los bienes del matrimonio son compartidos por ambos cónyuges.
+                </span>
+              </span>
+
+            </label>
+            <label><input type="radio" name="tipoCopropiedad" value="cooperacion"> Copropiedad <span class="tooltip">
+                <img src="info.png" alt="Información" style="width:16px; height:16px; vertical-align:middle;">
+                <span class="tooltip-text">
+                  Situación legal donde dos o más personas comparten la propiedad de un mismo bien.
+                </span>
+              </span>
+            </label>
+
+
+
+            <label><input type="radio" name="tipoCopropiedad" value="sucesion"> Sucesión <span class="tooltip">
+                <img src="info.png" alt="Información" style="width:16px; height:16px; vertical-align:middle;">
+                <span class="tooltip-text">
+                  Transmisión legal de bienes, derechos y obligaciones de una persona fallecida a sus herederos.
+                </span>
+              </span>
+            </label>
+
+
+          </div>
+
+ 
+        <!-- REVISAR ESTA PARTE DEL CODIGO  ------------------------------------------------------------------------------------------->
+
+
+          <label for="rfc">RFC del representante común:
+          <input type="text" id="rfc" name="rfc_representante" required minlength="12" maxlength="13"
+            pattern="^([A-ZÑ&]{3,4})(\\d{2})(0[1-9]|1[0-2])(0[1-9]|[12]\\d|3[01])[A-Z\\d]{3}$"
+            title="Ingresa un RFC válido (12 o 13 caracteres, ejemplo: ABC800101XXX o ABCD800101XXX)"
+            style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase(); validarRFC(this)">
+          <span id="rfc-msg"></span>
         </label>
-        <label>Total ISR pagado en el ejercicio:
-          <input type="text" name="isrPagado">
-        </label>
+
         
-
-<label>Porcentaje de participación:
-  <input type="number" name="participacion" id="participacion" oninput="validarPorcentaje()">
-</label>
-<script>
-  function validarPorcentaje() {
-    const input = document.getElementById('participacion');
-    if (input.value > 99) {
-      alert("El porcentaje no puede ser mayor a 99%");
-      input.value = 99;
-    }
-  }
-</script>
+        <!-- REVISAR ESTA PARTE DEL CODIGO  ------------------------------------------------------------------------------------------->
 
 
-      </div>
-    </fieldset>
+          <label>Total de ingresos acumulables:
+            <input type="text" name="ingresosTotales" inputmode="numeric" oninput="formatearMiles(this)">
+          </label>
+          
+
+          <label>Total ISR pagado en el ejercicio:
+            <input type="text" name="isrPagado" inputmode="numeric" oninput="formatearMiles(this)">
+          </label>
 
 
+          <label>Porcentaje de participación:
+            <input type="text" name="participacion" id="participacion" oninput="validarPorcentaje()">
+          </label>
+          <script>
+            function validarPorcentaje() {
+              const input = document.getElementById('participacion');
+              if (input.value > 99) {
+                alert("El porcentaje no puede ser mayor a 99%");
+                input.value = 99;
+              }
+            }
+          </script>
 
 
-    <!-- Pregunta 3 -->
-    <fieldset>
-  <legend>3. ¿Tienes otros datos informativos que declarar?</legend>
-  <div class="options">
-    <label><input type="radio" name="otrosDatos" value="no" checked> No</label>
-    <label><input type="radio" name="otrosDatos" value="si"> Sí</label>
-  </div>
-  
-  <div id="p3_extra" class="oculto">
-
-    <div class="opcion-doble">
-      <label>Ingresos por apoyos gubernamentales:</label>
-      <input type="text" name="apoyos_concepto" placeholder="Concepto">
-      <input type="text" name="apoyos_monto" placeholder="Monto">
-    </div>
-
-    <div class="opcion-doble">
-      <label>
-        Apoyo por contingencia de desastre natural:
-        <span class="tooltip">
-          <img src="info.png" alt="Información" style="width:16px; height:16px;">
-          <span class="tooltip-text">
-            Ejemplo: Sismo CDMX 09/2017
-          </span>
-        </span>
-      </label>
-      <input type="text" name="apoyosSismos_concepto" placeholder="Concepto">
-      <input type="text" name="apoyosSismos_monto" placeholder="Monto">
-    </div>
-
-    <div class="opcion-doble">
-      <label>
-        Condonación de deuda (casa):
-        <span class="tooltip">
-          <img src="info.png" alt="Información" style="width:16px; height:16px;">
-          <span class="tooltip-text">
-            Monto de la condonación o remisión de deuda de créditos otorgados para adquisición de casa habitación.
-          </span>
-        </span>
-      </label>
-      <input type="text" name="condonacion_concepto" placeholder="Concepto">
-      <input type="text" name="condonacion_monto" placeholder="Monto">
-    </div>
-
-  </div>
-</fieldset>
+        </div>
+      </fieldset>
 
 
 
 
+      <!-- Pregunta 3 -->
+      <fieldset>
+        <legend>3. ¿Tienes otros datos informativos que declarar?</legend>
+        <div class="options">
+          <label><input type="radio" name="otrosDatos" value="no" checked> No</label>
+          <label><input type="radio" name="otrosDatos" value="si"> Sí</label>
+        </div>
 
-    <fieldset>
+        <div id="p3_extra" class="oculto">
 
+          <div class="opcion-doble">
+            <label>Ingresos por apoyos gubernamentales:</label>
+            <input type="text" name="apoyos_concepto" placeholder="Concepto">
+            <input type="text" name="apoyos_monto" placeholder="Monto">
+          </div>
 
+          <div class="opcion-doble">
+            <label>
+              Apoyo por contingencia de desastre natural:
+              <span class="tooltip">
+                <img src="info.png" alt="Información" style="width:16px; height:16px;">
+                <span class="tooltip-text">
+                  Ejemplo: Sismo CDMX 09/2017
+                </span>
+              </span>
+            </label>
+            <input type="text" name="apoyosSismos_concepto" placeholder="Concepto">
+            <input type="text" name="apoyosSismos_monto" placeholder="Monto">
+          </div>
 
-      <legend>Comentarios adicionales</legend>
+          <div class="opcion-doble">
+            <label>
+              Condonación de deuda (casa):
+              <span class="tooltip">
+                <img src="info.png" alt="Información" style="width:16px; height:16px;">
+                <span class="tooltip-text">
+                  Monto de la condonación o remisión de deuda de créditos otorgados para adquisición de casa habitación.
+                </span>
+              </span>
+            </label>
+            <input type="text" name="condonacion_concepto" placeholder="Concepto">
+            <input type="text" name="condonacion_monto" placeholder="Monto">
+          </div>
 
-
-      <textarea name="mensaje" rows="5"></textarea>
-
-
-    </fieldset>
+        </div>
+      </fieldset>
 
 
 
 
 
-    
-    <!-- Botón -->
-    <button type="submit" class="btn">Enviar</button>
-  </form>
+      <fieldset>
 
 
 
-  
-  <script>
-  function mostrarPantalla(num) {
-      document.querySelectorAll('.pantalla').forEach(p => p.classList.remove('activa'));
-      document.getElementById('pantalla' + num).classList.add('activa');
-    }
+        <legend>Comentarios adicionales</legend>
 
-    function continuarFormulario() {
-      const check = document.getElementById("acepto");
-      if (!check.checked) {
-        alert("Debes aceptar los términos y condiciones para continuar.");
-        return;
+
+        <textarea name="mensaje" rows="5"></textarea>
+
+
+      </fieldset>
+
+
+
+
+
+
+      <!-- Botón -->
+      <button type="submit" class="btn">Enviar</button>
+    </form>
+
+
+
+
+    <script>
+      function mostrarPantalla(num) {
+        document.querySelectorAll('.pantalla').forEach(p => p.classList.remove('activa'));
+        document.getElementById('pantalla' + num).classList.add('activa');
       }
-      mostrarPantalla(3);
-    }
 
-    function toggleExtra(name, extraId) {
-      document.querySelectorAll(`input[name="${name}"]`).forEach(radio => {
-        radio.addEventListener('change', function() {
-          document.getElementById(extraId).style.display = (this.value === 'si') ? 'block' : 'none';
+      function continuarFormulario() {
+        const check = document.getElementById("acepto");
+        if (!check.checked) {
+          alert("Debes aceptar los términos y condiciones para continuar.");
+          return;
+        }
+        mostrarPantalla(3);
+      }
+
+      function toggleExtra(name, extraId) {
+        document.querySelectorAll(`input[name="${name}"]`).forEach(radio => {
+          radio.addEventListener('change', function () {
+            document.getElementById(extraId).style.display = (this.value === 'si') ? 'block' : 'none';
+          });
         });
-      });
-    }
-    toggleExtra("ingresosExentos", "p1_extra");
-    toggleExtra("copropiedad", "p2_extra");
-    toggleExtra("otrosDatos", "p3_extra");
-  </script>
+      }
+      toggleExtra("ingresosExentos", "p1_extra");
+      toggleExtra("copropiedad", "p2_extra");
+      toggleExtra("otrosDatos", "p3_extra");
+    </script>
 
 
-<script>
-function validarRFC(input) {
-  const regex = /^([A-ZÑ&]{3,4})(\d{2})(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])[A-Z\d]{3}$/;
-  const msg = document.getElementById("rfc-msg");
-  
-  if (regex.test(input.value)) {
-    input.classList.remove("invalido");
-    input.classList.add("valido");
-    msg.textContent = "✅ RFC válido";
-    msg.className = "ok";
-  } else {
-    input.classList.remove("valido");
-    input.classList.add("invalido");
-    msg.textContent = "❌ RFC inválido";
-    msg.className = "error";
-  }
-}
-</script>
+    <script>
+      function validarRFC(input) {
+        const regex = /^([A-ZÑ&]{3,4})(\d{2})(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])[A-Z\d]{3}$/;
+        const msg = document.getElementById("rfc-msg");
 
-<script>
-function formatearMiles(input) {
-  // Elimina todo excepto números
-  let valor = input.value.replace(/\D/g, "");
-  
-  // Aplica formato con comas cada 3 dígitos
-  input.value = valor.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-</script>
+        if (regex.test(input.value)) {
+          input.classList.remove("invalido");
+          input.classList.add("valido");
+          msg.textContent = "✅ RFC válido";
+          msg.className = "ok";
+        } else {
+          input.classList.remove("valido");
+          input.classList.add("invalido");
+          msg.textContent = "❌ RFC inválido";
+          msg.className = "error";
+        }
+      }
+    </script>
 
+    <script>
+      function formatearMiles(input) {
+        // Elimina todo excepto números
+        let valor = input.value.replace(/\D/g, "");
 
+        // Aplica formato con comas cada 3 dígitos
+        input.value = valor.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      }
+    </script>
 
 
-<script>
-  function toggleInput(checkbox) {
-    const input = checkbox.closest('.opcion-ingreso').querySelector('input[type="text"]');
-    input.disabled = !checkbox.checked;
-    if (!checkbox.checked) {
-      input.value = ""; // opcional: limpiar el campo al desmarcar
-    }
-  }
-</script>
+
+
+    <script>
+      function toggleInput(checkbox) {
+        const input = checkbox.closest('.opcion-ingreso').querySelector('input[type="text"]');
+        input.disabled = !checkbox.checked;
+        if (!checkbox.checked) {
+          input.value = ""; // opcional: limpiar el campo al desmarcar
+        }
+      }
+    </script>
 
 </body>
+
 </html>
-
-
-
-
