@@ -270,6 +270,36 @@
   .terminos {
     height: 150px; /* menos alto en móviles */
   }
+  
+
+#rfc {
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 6px;
+  outline: none;
+  transition: background-color 0.3s;
+}
+#rfc.valido {
+  background-color: #d4edda; /* verde claro interno */
+}
+#rfc.invalido {
+  background-color: #f8d7da; /* rojo claro interno */
+}
+#rfc-msg {
+  font-size: 0.9em;
+  margin-left: 5px;
+}
+#rfc-msg.ok {
+  color: green;
+}
+#rfc-msg.error {
+  color: red;
+}
+
+
+
+
+
 }
 
 
@@ -406,12 +436,21 @@
       <label>Nombre completo:
         <input type="text" name="nombre" required>
       </label>
-      <label>RFC:
-        <input type="text" name="rfc" required>
-      </label>
 
-
-
+      <label for="rfc">RFC:
+<input 
+  type="text" 
+  id="rfc" 
+  name="rfc" 
+  required 
+  minlength="12" 
+  maxlength="13" 
+  pattern="^([A-ZÑ&]{3,4})(\\d{2})(0[1-9]|1[0-2])(0[1-9]|[12]\\d|3[01])[A-Z\\d]{3}$" 
+  title="Ingresa un RFC válido (12 o 13 caracteres, ejemplo: ABC800101XXX o ABCD800101XXX)" 
+  style="text-transform: uppercase;" 
+  oninput="this.value = this.value.toUpperCase(); validarRFC(this)">
+<span id="rfc-msg"></span>
+</label>
 
     </fieldset>
 
@@ -440,38 +479,80 @@
 <div id="p1_extra" class="oculto">
   
   <div class="opcion-ingreso">
-    <label><input type="checkbox" name="ingresos[]" value="prestamos" onchange="toggleInput(this)"> Préstamos</label>
-    <input type="text" name="monto_prestamos" placeholder="$ monto" disabled>
-  </div>
+  <label>
+    <input type="checkbox" name="ingresos[]" value="prestamos" onchange="toggleInput(this)"> Préstamos
+  </label>
+  <input 
+    type="text" 
+    name="monto_prestamos" 
+    placeholder="$ monto" 
+    disabled
+    inputmode="numeric" 
+    oninput="formatearMiles(this)">
+</div>
+
 
   <div class="opcion-ingreso">
     <label><input type="checkbox" name="ingresos[]" value="donativos" onchange="toggleInput(this)"> Donativos</label>
-    <input type="text" name="monto_donativos" placeholder="$ monto" disabled>
+    <input 
+    type="text" 
+    name="monto_donativos" 
+    placeholder="$ monto" 
+    disabled
+    inputmode="numeric" 
+    oninput="formatearMiles(this)">
   </div>
 
   <div class="opcion-ingreso">
     <label><input type="checkbox" name="ingresos[]" value="premios" onchange="toggleInput(this)"> Premios</label>
-    <input type="text" name="monto_premios" placeholder="$ monto" disabled>
+    <input 
+    type="text" 
+    name="monto_premios" 
+    placeholder="$ monto" 
+    disabled
+    inputmode="numeric" 
+    oninput="formatearMiles(this)">
   </div>
 
   <div class="opcion-ingreso">
     <label><input type="checkbox" name="ingresos[]" value="viaticos" onchange="toggleInput(this)"> Viáticos cobrados</label>
-    <input type="text" name="monto_viaticos" placeholder="$ monto" disabled>
+    <input 
+    type="text" 
+    name="monto_viaticos" 
+    placeholder="$ monto" 
+    disabled
+    inputmode="numeric" 
+    oninput="formatearMiles(this)">
   </div>
 
   <div class="opcion-ingreso">
     <label><input type="checkbox" name="ingresos[]" value="casa" onchange="toggleInput(this)"> Enajenación de casa habitación</label>
-    <input type="text" name="monto_casa" placeholder="$ monto" disabled>
+    <input 
+    type="text" 
+    name="monto_casa" 
+    placeholder="$ monto" 
+    disabled
+    inputmode="numeric" 
+    oninput="formatearMiles(this)">
   </div>
 
   <div class="opcion-ingreso">
     <label><input type="checkbox" name="ingresos[]" value="herencias" onchange="toggleInput(this)"> Herencias o legados</label>
-    <input type="text" name="monto_herencias" placeholder="$ monto" disabled>
+    <input 
+    type="text" 
+    name="monto_herencias" 
+    placeholder="$ monto" 
+    disabled
+    inputmode="numeric" 
+    oninput="formatearMiles(this)">
   </div>
 
 </div>
 
 </fieldset>
+
+
+
 
     <!-- Pregunta 2 -->
     <fieldset>
@@ -496,33 +577,42 @@
        Situación legal donde dos o más personas comparten la propiedad de un mismo bien.
       </span>
     </span>
-
-
-
-  
   </label>
-          <label><input type="radio" name="tipoCopropiedad" value="sucesion"> Sucesión <span class="tooltip">
+
+
+
+    <label><input type="radio" name="tipoCopropiedad" value="sucesion"> Sucesión <span class="tooltip">
       <img src="info.png" alt="Información" style="width:16px; height:16px; vertical-align:middle;">
       <span class="tooltip-text">
        Transmisión legal de bienes, derechos y obligaciones de una persona fallecida a sus herederos.
       </span>
     </span>
-  
-  
-  
-  
   </label>
-        </div>
+        
+
+    </div>
+
         <label>RFC del representante común:
-          <input type="text" name="rfc">
-        </label>
+  <input 
+    type="text" 
+    name="rfc_representante" 
+    required 
+    minlength="12" 
+    maxlength="13" 
+    pattern="^([A-ZÑ&]{3,4})(\d{2})(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])[A-Z\d]{3}$" 
+    title="Ingresa un RFC válido (12 o 13 caracteres)" 
+    style="text-transform: uppercase;" 
+    oninput="this.value = this.value.toUpperCase();">
+</label>
         <label>Total de ingresos acumulables:
           <input type="text" name="ingresosTotales">
         </label>
         <label>Total ISR pagado en el ejercicio:
           <input type="text" name="isrPagado">
         </label>
-        <label>Porcentaje de participación:
+        
+
+<label>Porcentaje de participación:
   <input type="number" name="participacion" id="participacion" oninput="validarPorcentaje()">
 </label>
 <script>
@@ -538,6 +628,9 @@
 
       </div>
     </fieldset>
+
+
+
 
     <!-- Pregunta 3 -->
     <fieldset>
@@ -611,6 +704,9 @@
     <button type="submit" class="btn">Enviar</button>
   </form>
 
+
+
+  
   <script>
   function mostrarPantalla(num) {
       document.querySelectorAll('.pantalla').forEach(p => p.classList.remove('activa'));
@@ -637,6 +733,39 @@
     toggleExtra("copropiedad", "p2_extra");
     toggleExtra("otrosDatos", "p3_extra");
   </script>
+
+
+<script>
+function validarRFC(input) {
+  const regex = /^([A-ZÑ&]{3,4})(\d{2})(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])[A-Z\d]{3}$/;
+  const msg = document.getElementById("rfc-msg");
+  
+  if (regex.test(input.value)) {
+    input.classList.remove("invalido");
+    input.classList.add("valido");
+    msg.textContent = "✅ RFC válido";
+    msg.className = "ok";
+  } else {
+    input.classList.remove("valido");
+    input.classList.add("invalido");
+    msg.textContent = "❌ RFC inválido";
+    msg.className = "error";
+  }
+}
+</script>
+
+<script>
+function formatearMiles(input) {
+  // Elimina todo excepto números
+  let valor = input.value.replace(/\D/g, "");
+  
+  // Aplica formato con comas cada 3 dígitos
+  input.value = valor.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+</script>
+
+
+
 
 <script>
   function toggleInput(checkbox) {
