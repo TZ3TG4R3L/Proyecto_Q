@@ -306,6 +306,7 @@
       }
 
 
+
       #rfc {
         border: 1px solid #ccc;
         padding: 8px;
@@ -375,9 +376,8 @@
         y procesado por Formspree y gestionado adicionalmente por Apps Para Contadores (en adelante, “el Despacho”),
         respecto al tratamiento de los datos personales proporcionados por el usuario (en adelante, “el Usuario”).
       </p>
-      <p>Al completar y enviar el formulario, el Usuario acepta expresamente estos Términos y Condiciones.</p>
-
-      <strong>2. RESPONSABLE DEL TRATAMIENTO DE DATOS PERSONALES</strong>
+  
+    <strong>2. RESPONSABLE DEL TRATAMIENTO DE DATOS PERSONALES</strong>
       <p>
         El responsable del tratamiento de los datos personales proporcionados por el Usuario es el Despacho, el cual
         garantiza la confidencialidad, integridad y disponibilidad de la información conforme a la legislación aplicable
@@ -629,18 +629,20 @@
         <!-- REVISAR ESTA PARTE DEL CODIGO  ------------------------------------------------------------------------------------------->
 
 
-          <label for="rfc">RFC del representante común:
-          <input type="text" id="rfc" name="rfc_representante" required minlength="12" maxlength="13"
-            pattern="^([A-ZÑ&]{3,4})(\\d{2})(0[1-9]|1[0-2])(0[1-9]|[12]\\d|3[01])[A-Z\\d]{3}$"
-            title="Ingresa un RFC válido (12 o 13 caracteres, ejemplo: ABC800101XXX o ABCD800101XXX)"
-            style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase(); validarRFC(this)">
-          <span id="rfc-msg"></span>
-        </label>
+          <label for="rfc_representante">RFC del representante común:
+  <input type="text" id="rfc_representante" name="rfc_representante" required minlength="12" maxlength="13"
+    pattern="^([A-ZÑ&]{3,4})(\\d{2})(0[1-9]|1[0-2])(0[1-9]|[12]\\d|3[01])[A-Z\\d]{3}$"
+    title="Ingresa un RFC válido" style="text-transform: uppercase;"
+    oninput="this.value = this.value.toUpperCase(); validarRFC(this)">
+  <span></span>
+</label>
+
 
         
         <!-- REVISAR ESTA PARTE DEL CODIGO  ------------------------------------------------------------------------------------------->
 
 
+        
           <label>Total de ingresos acumulables:
             <input type="text" name="ingresosTotales" inputmode="numeric" oninput="formatearMiles(this)">
           </label>
@@ -652,8 +654,8 @@
 
 
           <label>Porcentaje de participación:
-            <input type="text" name="participacion" id="participacion" oninput="validarPorcentaje()">
-          </label>
+            <input type="text" name="participacion" id="participacion" oninput="validarPorcentaje(this), formatearMiles(this)">
+          
           <script>
             function validarPorcentaje() {
               const input = document.getElementById('participacion');
@@ -663,7 +665,7 @@
               }
             }
           </script>
-
+          </label>
 
         </div>
       </fieldset>
@@ -684,7 +686,7 @@
           <div class="opcion-doble">
             <label>Ingresos por apoyos gubernamentales:</label>
             <input type="text" name="apoyos_concepto" placeholder="Concepto">
-            <input type="text" name="apoyos_monto" placeholder="Monto">
+            <input type="text" name="apoyos_monto" placeholder="Monto" inputmode="numeric" oninput="formatearMiles(this)">
           </div>
 
           <div class="opcion-doble">
@@ -698,7 +700,7 @@
               </span>
             </label>
             <input type="text" name="apoyosSismos_concepto" placeholder="Concepto">
-            <input type="text" name="apoyosSismos_monto" placeholder="Monto">
+            <input type="text" name="apoyosSismos_monto" placeholder="Monto" inputmode="numeric" oninput="formatearMiles(this)">
           </div>
 
           <div class="opcion-doble">
@@ -712,7 +714,7 @@
               </span>
             </label>
             <input type="text" name="condonacion_concepto" placeholder="Concepto">
-            <input type="text" name="condonacion_monto" placeholder="Monto">
+            <input type="text" name="condonacion_monto" placeholder="Monto" inputmode="numeric" oninput="formatearMiles(this)">
           </div>
 
         </div>
@@ -775,23 +777,36 @@
 
 
     <script>
-      function validarRFC(input) {
-        const regex = /^([A-ZÑ&]{3,4})(\d{2})(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])[A-Z\d]{3}$/;
-        const msg = document.getElementById("rfc-msg");
+  function validarRFC(input) {
+    const valor = input.value.toUpperCase();
+    const regex = /^([A-ZÑ&]{3,4})(\d{2})(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])[A-Z\d]{3}$/;
+    const msg = input.nextElementSibling;
 
-        if (regex.test(input.value)) {
-          input.classList.remove("invalido");
-          input.classList.add("valido");
-          msg.textContent = "✅ RFC válido";
-          msg.className = "ok";
-        } else {
-          input.classList.remove("valido");
-          input.classList.add("invalido");
-          msg.textContent = "❌ RFC inválido";
-          msg.className = "error";
-        }
-      }
-    </script>
+    // Lista de RFCs no permitidos
+    const rfcProhibidos = ["XAXX010101000", "XEXX010101000"];
+
+    if (rfcProhibidos.includes(valor)) {
+      input.classList.remove("valido");
+      input.classList.add("invalido");
+      msg.textContent = "❌ RFC no permitido";
+      msg.className = "error";
+      return;
+    }
+
+    if (regex.test(valor)) {
+      input.classList.remove("invalido");
+      input.classList.add("valido");
+      msg.textContent = "✅ RFC válido";
+      msg.className = "ok";
+    } else {
+      input.classList.remove("valido");
+      input.classList.add("invalido");
+      msg.textContent = "❌ RFC inválido";
+      msg.className = "error";
+    }
+  }
+</script>
+
 
     <script>
       function formatearMiles(input) {
