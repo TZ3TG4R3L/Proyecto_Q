@@ -501,7 +501,7 @@
         </label>
 
         <label for="rfc">RFC:
-          <input type="text" id="rfc" name="rfc" required minlength="12" maxlength="13"
+          <input type="text" id="rfc" name="rfc" minlength="12" maxlength="13"
             pattern="/^([A-ZÑ&]{3,4})(\d{2})(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])[A-Z\d]{3}$/"
             title="Ingresa un RFC válido (12 o 13 caracteres, ejemplo: ABC800101XXX o ABCD800101XXX)"
             style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase(); validarRFC(this)">
@@ -835,3 +835,4 @@
 
 
 </html>
+
